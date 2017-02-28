@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %> - Blog</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+    <!-- <link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome.css"> -->
+    <link rel="stylesheet" href="/stylesheets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/jquery.min.js"></script>
+</head>
+
+    <body>
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">YIDBlog</a>
+            </div>
+            <a class="navbar-brand" href="/">首页</a>
+            <ul class="nav navbar-nav navbar-right">
+                <% if(user){ %>
+                <li><a title="发表文章" href="/post">发表文章</a></li>
+                <li><a href="/logout"><span class="fa fa-user-circle"></span>登出</a></li>
+                <%}else{%>
+                <li><a href="/reg"><span class="fa fa-user-circle"></span> 注册</a></li>
+                <li><a href="/login"><span class="fa fa-user-o"></span> 登录</a></li>
+                <%}%>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div>
+        <% if(success) { %>
+        <%= success%>
+        <% } else { %>
+        <%= error %>
+        <% } %>
+        <h3><%= title %></h3>
+        <div class="userArea">
+            <% if(user) {%>
+            <span>用户：<%= user.name %></span>
+            <% } else { %>
+            <span>用户：游客</span>
+            <% } %>
+        </div>
+    </div>
+    <hr />
+<div class="col-sm-12">
+<article>

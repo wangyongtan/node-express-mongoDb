@@ -1,0 +1,15 @@
+<%- include header %>
+<ul class="list-group">
+<% posts.forEach(function (post, index) { %>
+<li class="list-group-item">
+  <h3><a href="#"><%= post.title %></a></h3>
+  <p class="info">
+  <span>作者：<a href="#"><%= post.name %></a> </span>
+  <span>|</span> 
+  <span>日期：<%= post.time.minute %></span>
+  </p>
+  <p><%- post.post %></p>
+  </li>
+<% }) %>
+    </ul>
+<%- include footer %>
